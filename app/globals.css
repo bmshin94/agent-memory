@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+@source "../node_modules/streamdown/dist/*.js";
+
+:root {
+  --background: #fcfcfc;
+  --foreground: #18181b;
+  --accent: #f25d1b;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-accent: var(--accent);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+@keyframes memflash {
+  0% {
+    background-color: rgba(242, 93, 27, 0.12);
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+.flash {
+  animation: memflash 1s ease-out;
+}
+
+@keyframes rowin {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.rowin {
+  animation: rowin 0.25s ease-out;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #d4d4d8 transparent;
+}
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+*::-webkit-scrollbar-thumb {
+  background: #d4d4d8;
+  border-radius: 8px;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.25;
+  }
+}
+.blink {
+  animation: blink 1.1s ease-in-out infinite;
+}
